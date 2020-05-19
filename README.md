@@ -1,6 +1,7 @@
 # From_Earth_Rover
 
 The goal with this project is to use reinforcement learning to produce a good algorithm and path for a simulated Mars rover to navigate by.
+Although the project is over, this repository is being used for code created along the way.
 
 ## Getting Started
 

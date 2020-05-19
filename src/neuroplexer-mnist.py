@@ -1,6 +1,14 @@
 # With 5 epochs achieved an accuarcy of 98.13%
 # With 10 epochs it achieves an accuracy of 98.27%
 # With 2 epochs it achieves an accuarcy of 97.52%
+
+# Instead of comparing all the digits using one neural network
+# this algorithm uses one neural network for each category
+# and doesn't look for all the digits, it just checks to see if
+# it is the digit it is looking for or if it is not the digit
+# it is looking for (ie. any number beside what that neural network
+# specializes in). Then it takes the most certain prediciton as
+# what the actual digit it is looking at is.
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 import tensorflow as tf
@@ -66,8 +74,8 @@ print(label_test[:25])
 all_digit_models = [[] for _ in range(10)]
 for j in range(10):
     all_digit_models[j] = create_model()
-    all_digit_models[j].fit(data_train, label_train_array[j], epochs=1)
-    print("\n\n\nCurrently on Digit: ", j, "\n\n\n")
+    all_digit_models[j].fit(data_train, label_train_array[j], epochs=5)
+    print("\n\n\nCurrently done Digit: ", j, "\n\n\n")
 
 predictions_of_all_models = [[] for _ in range(10)]
 for k in range(10):
